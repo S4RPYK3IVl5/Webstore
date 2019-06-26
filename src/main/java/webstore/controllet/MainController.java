@@ -20,12 +20,13 @@ public class MainController {
         this.mainService = mainService;
     }
 
-    @GetMapping("/login")
+    @GetMapping("/authorization")
     public String getIndexPage(User user){
-        return "login";
+        return "authorization";
     }
 
-    @PostMapping("/login")
+    // Add user in DB if input value is correct
+    @PostMapping("/authorization")
     public String checkInfo(@Valid User user, BindingResult bindingResult)
     {
         return mainService.checkInfo(user, bindingResult);

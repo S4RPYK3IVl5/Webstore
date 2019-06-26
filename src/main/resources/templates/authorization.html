@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Webstore</title>
+</head>
+<body>
+    <!--/*@thymesVar id="user" type="webstore.domain.User"*/-->
+    <form action="#" th:action="@{/authorization}" th:object="${user}" method="post">
+        <table>
+            <tr>
+                <td>Login:</td>
+                <td><input type="text" th:field="*{login}" /></td>
+                <td th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login Error</td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" th:field="*{password}" /></td>
+                <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+            </tr>
+            <tr>
+                <td><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+</form>
+</body>
+</html>
