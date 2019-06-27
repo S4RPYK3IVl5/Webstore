@@ -2,6 +2,7 @@ package webstore.controllet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,8 +28,8 @@ public class MainController {
 
     // Add user in DB if input value is correct
     @PostMapping("/authorization")
-    public String checkInfo(@Valid User user, BindingResult bindingResult)
+    public String checkInfo(@Valid User user, BindingResult bindingResult, Model model)
     {
-        return mainService.checkInfo(user, bindingResult);
+        return mainService.checkInfo(user, bindingResult, model);
     }
 }
