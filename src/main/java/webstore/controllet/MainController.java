@@ -21,8 +21,13 @@ public class MainController {
         this.mainService = mainService;
     }
 
+    @GetMapping("/")
+    public String getIndexPage(){
+        return "index";
+    }
+
     @GetMapping("/authorization")
-    public String getIndexPage(User user){
+    public String getAuthorizationPage(User user){
         return "authorization";
     }
 
