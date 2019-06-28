@@ -11,12 +11,28 @@
         You have been logged out.
     </div>
     <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <div><input type="submit" class="btn btn-primary" value="Sign In"/></div>
+
+        <div class="form-group m-3 form-inline">
+            <label for="inputPassword2"> User name : </label>
+            <input type="text" name="username" id="inputPassword2"
+                   class="form-control mx-sm-3" aria-describedby="passwordHelpInline"
+                   placeholder="Enter your username"/>
+        </div>
+
+        <div class="form-group m-3 form-inline">
+            <label for="inputPassword6"> Password: </label>
+            <input type="password" name="password" id="inputPassword6"
+                   class="form-control mx-sm-3" aria-describedby="passwordHelpInline"
+                   placeholder="Enter your password"/> </label>
+        </div>
+
+        <div>
+            <input type="submit" class="btn btn-primary m-3 ml-4" value="Sign In"/>
+        </div>
+
     </form>
 
-    <p >If you do not have account, follow the <a href="/authorization">link</a> </p>
+    <p class="text-monospace mt-3 ml-5">If you do not have an account, follow the <a href="/authorization" class="text-decoration-none">link</a> </p>
 
 </body>
 </html>
