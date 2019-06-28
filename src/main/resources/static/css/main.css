@@ -1,0 +1,10 @@
+.navbar
+{
+    justify-content: flex-end;
+}
+
+.headImg
+{
+    position: absolute;
+    left: 1em;
+}
