@@ -19,6 +19,7 @@ public class MainService {
     }
 
     public String checkInfo(User user, BindingResult bindingResult, Model model) {
+
         if (bindingResult.hasErrors())
             return "authorization";
 

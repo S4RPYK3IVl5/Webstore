@@ -1,6 +1,7 @@
 package webstore.controllet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,8 +23,21 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String getIndexPage(){
+    public String getIndexPage(@AuthenticationPrincipal User user, Model model){
+        model.addAttribute("user", user);
         return "index";
+    }
+
+    @GetMapping("/login")
+    public String getLoginPage(@AuthenticationPrincipal User user, Model model){
+        model.addAttribute("user", user);
+        return "login";
+    }
+
+    @GetMapping("/hello")
+    public String getHello(@AuthenticationPrincipal User user, Model model){
+        model.addAttribute("user", user);
+        return "main";
     }
 
     @GetMapping("/authorization")
