@@ -22,6 +22,8 @@
 
     <a th:if="${user}" href="#" class="navbar-brand">Market</a>
 
+    <a th:if="${user}" href="#" class="navbar-brand">[[${#httpServletRequest.remoteUser}]]</a>
+
     <form th:if="${user}" th:action="@{/logout}" method="post">
         <input type="submit" class="btn btn-dark" value="Sign Out"/>
     </form>

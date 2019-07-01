@@ -7,7 +7,38 @@
     <nav class="navbar navbar-dark bg-dark" th:replace="parts/head :: navbar" >
     </nav>
 
-    <h1 th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
+    <!--/*@thymesVar id="product" type="webstore.domain.Product"*/-->
+
+    <form action="#" th:action="@{/hello}" th:object="${product}" method="post">
+
+        <input type="text" th:field="*{name}"
+               placeholder="Name of product"/>
+        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red;">Name Error</small>
+
+        <input type="text" th:field="*{cost}"
+               placeholder="Enter your password"/>
+        <small th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}" style="color: red;">Cost Error</small>
+
+        <input type="text" th:field="*{weight}"
+               placeholder="Enter your password"/>
+        <small th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color: red;">Weight Error</small>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="button">Select type</button>
+            </div>
+            <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon" name="type">
+                <option selected></option>
+                <option value="technicals">technicals</option>
+                <option value="animals">animals</option>
+                <option value="realty">realty</option>
+                <option value="clothes">clothes</option>
+                <option value="other">other</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary m-3 ml-4">Submit</button>
+    </form>
 
 </body>
 </html>

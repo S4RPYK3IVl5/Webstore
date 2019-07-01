@@ -4,19 +4,20 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark" th:fragment="navbar">
-    <a class="navbar-brand headImg" href="/">
-        <img src="img/wLetter.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        ebstore
-    </a>
+    <nav class="navbar navbar-dark bg-dark" th:fragment="navbar">
+        <a class="navbar-brand headImg" href="/">
+            <img src="img/wLetter.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            ebstore
+        </a>
 
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" class="btn btn-dark" value="Sign In"/>
-    </form>
-</nav>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" class="btn btn-dark" value="Sign In"/>
+        </form>
+    </nav>
 
-    <!--/*@thymesVar id="user" type="webstore.domain.User"*/-->
     <p th:if="*{message}">[[${message}]]</p>
+
+<!--/*@thymesVar id="user" type="webstore.domain.User"*/-->
 
     <form action="#" th:action="@{/authorization}" th:object="${user}" method="post">
 

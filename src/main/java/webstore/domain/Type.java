@@ -13,7 +13,7 @@ public enum  Type {
         this.value = value;
     }
 
-    public Type isType(String string){
+    public static Type isType(String string){
         for (Type type : Type.values()){
             if (string.equalsIgnoreCase(type.value))
                 return type;
