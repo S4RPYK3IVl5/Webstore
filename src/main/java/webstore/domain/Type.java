@@ -1,13 +1,17 @@
 package webstore.domain;
 
 public enum  Type {
-    TECHNICAL("technicals"),
-    ANIMAL("animals"),
-    REALTY("realty"),
-    CLOTHES("clothes"),
-    OTHER("other");
+    TECHNICAL("Technicals"),
+    ANIMAL("Animals"),
+    REALTY("Realty"),
+    CLOTHES("Clothes"),
+    OTHER("Other");
 
     private String value;
+
+    public String getValue() {
+        return value;
+    }
 
     Type(String value) {
         this.value = value;

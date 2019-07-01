@@ -7,7 +7,7 @@
     <nav class="navbar navbar-dark bg-dark" th:replace="parts/head :: navbar" >
     </nav>
 
-    <a class="btn btn-primary ml-4 mt-1" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <a class="btn btn-primary ml-4 my-2" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         Add Product
     </a>
 
@@ -45,6 +45,13 @@
                     </div>
 
                     <div class="form-group col-md-6">
+                        <label for="descriptionInput">Optional</label>
+                        <input type="text" th:field="*{description}" value=""
+                               class="form-control" id="descriptionInput"
+                               placeholder="Enter description (optional)"/>
+                    </div>
+
+                    <div class="form-group col-md-6">
                         <label for="inputGroupSelect03">Select type</label>
                         <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon" name="type">
                             <option selected></option>
@@ -62,6 +69,24 @@
         </div>
     </div>
 
+    <div th:if="${products}" id="productId">
+        <div class="card m-4" style="width: 18rem;" th:each="aProduct : ${products}">
+            <img src="#" class="card-img-top" alt="img of product">
+            <div class="card-body">
+                <h5 class="card-title">[[${aProduct.name}]]</h5>
+                <p class="card-text">[[${aProduct.description}]]</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cost($) : [[${aProduct.cost}]]</li>
+                <li class="list-group-item">Weight(kg) : [[${aProduct.weight}]]</li>
+                <li class="list-group-item">Type : <p id="typeOfProduct" th:each="type : ${aProduct.types}">[[${type}]] </p></li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Seller</a>
+                <a href="#" class="card-link">To my card</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

@@ -12,3 +12,13 @@
 .alert{
     width: 15%;
 }
+
+#typeOfProduct{
+    display: inline;
+}
+
+#productId{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

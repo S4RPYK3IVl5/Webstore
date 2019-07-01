@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import webstore.domain.Product;
-import webstore.domain.Type;
 import webstore.domain.User;
 import webstore.service.ProductService;
 
 import javax.validation.Valid;
-import java.util.Collections;
 
 @Controller
 @RequestMapping("/hello")
@@ -29,8 +27,7 @@ public class ProductController {
 
     @GetMapping
     public String getHello(@AuthenticationPrincipal User user, Product product, Model model){
-        model.addAttribute("user", user);
-        return "main";
+        return productService.getHello(user, product, model);
     }
 
     @PostMapping

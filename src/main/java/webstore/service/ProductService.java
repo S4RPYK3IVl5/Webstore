@@ -9,6 +9,7 @@ import webstore.domain.User;
 import webstore.repos.ProductRepo;
 
 import java.util.Collections;
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -32,5 +33,13 @@ public class ProductService {
         model.addAttribute("user", user);
 
         return "redirect:/hello";
+    }
+
+    public String getHello(User user, Product product, Model model) {
+
+        List<Product> products = productRepo.findAll();
+        model.addAttribute("products", products);
+
+        return "main";
     }
 }
