@@ -2,10 +2,18 @@
 <html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="parts/head :: head">
 </head>
-<body >
+<body>
 
-    <nav class="navbar navbar-dark bg-dark" th:replace="parts/head :: navbar" >
-    </nav>
+<nav class="navbar navbar-dark bg-dark" th:fragment="navbar">
+    <a class="navbar-brand headImg" href="/">
+        <img src="img/wLetter.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        ebstore
+    </a>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" class="btn btn-dark" value="Sign In"/>
+    </form>
+</nav>
 
     <!--/*@thymesVar id="user" type="webstore.domain.User"*/-->
     <p th:if="*{message}">[[${message}]]</p>
