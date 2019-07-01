@@ -18,6 +18,6 @@ public enum  Type {
             if (string.equalsIgnoreCase(type.value))
                 return type;
         }
-        throw new IllegalArgumentException("No such value");
+        return null;
     }
 }

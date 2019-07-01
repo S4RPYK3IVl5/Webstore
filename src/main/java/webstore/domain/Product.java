@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.Set;
 
 @Entity
@@ -19,11 +19,11 @@ public class Product {
     private String name;
 
     @NotNull
-    @Positive
+    @PositiveOrZero
     private int cost;
 
     @NotNull
-    @Positive
+    @PositiveOrZero
     private int weight;
 
     @ElementCollection(targetClass = Type.class, fetch = FetchType.EAGER)

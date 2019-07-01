@@ -15,7 +15,7 @@
         </form>
     </nav>
 
-    <p th:if="*{message}">[[${message}]]</p>
+    <div th:if="*{message}" class="alert alert-danger" role="alert">[[${message}]]</div>
 
 <!--/*@thymesVar id="user" type="webstore.domain.User"*/-->
 
@@ -28,7 +28,7 @@
                        class="form-control mx-sm-3" aria-describedby="passwordHelpInline"
                        placeholder="Enter your username"/>
 
-                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red;">Login Error</small>
+                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}"  class="alert alert-danger" role="alert" style="color: red;">Login Error</small>
             </div>
 
             <div class="form-group m-3 form-inline">
@@ -36,7 +36,7 @@
                 <input type="password" th:field="*{password}"  id="inputPassword6"
                        class="form-control mx-sm-3" aria-describedby="passwordHelpInline"
                        placeholder="Enter your password"/>
-                <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" id="passwordHelpInline" class="text-muted" style="color: red;">Password Error</small>
+                <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" id="passwordHelpInline" class="text-muted alert alert-danger" role="alert" style="color: red;">Password Error</small>
             </div>
 
             <button type="submit" class="btn btn-primary m-3 ml-4">Submit</button>
