@@ -53,6 +53,7 @@ public class ProductService {
 
         //Сохранение товара в сущность
         product.setTypes(Collections.singleton(Type.isType(type)));
+        product.setAuthor(user);
         productRepo.save(product);
         model.addAttribute("user", user);
 

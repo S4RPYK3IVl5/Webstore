@@ -39,6 +39,10 @@ public class Product {
 
     private String filename;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "author_id")
+    private User author;
+
     public List<String> getTypes() {
 
         List<String> stringsTypes = new LinkedList<>();
