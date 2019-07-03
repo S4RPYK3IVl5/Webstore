@@ -37,6 +37,8 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private Set<Type> types;
 
+    private String filename;
+
     public List<String> getTypes() {
 
         List<String> stringsTypes = new LinkedList<>();

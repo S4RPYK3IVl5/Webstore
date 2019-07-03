@@ -17,7 +17,7 @@
 
             <div th:if="*{message}" class="alert alert-danger" role="alert">[[${message}]]</div>
 
-            <form action="#" th:action="@{/hello}" th:object="${product}" method="post">
+            <form action="#" th:action="@{/hello}" th:object="${product}" method="post" enctype="multipart/form-data">
                 <div class="form-row">
 
                     <div class="form-group col-md-6">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="descriptionInput">Optional</label>
+                        <label for="descriptionInput">Description</label>
                         <input type="text" th:field="*{description}" value=""
                                class="form-control" id="descriptionInput"
                                placeholder="Enter description (optional)"/>
@@ -63,6 +63,11 @@
                         </select>
                     </div>
 
+                    <div class="form-group col-md-6">
+                        <label for="fileInput">Upload pic</label>
+                        <input type="file" name="file" class="form-control" id="fileInput"/>
+                    </div>
+
                     <button type="submit" class="btn btn-primary m-3 ml-4">Submit</button>
                 </div>
             </form>
@@ -71,7 +76,7 @@
 
     <div th:if="${products}" id="productId">
         <div class="card m-4" style="width: 18rem;" th:each="aProduct : ${products}">
-            <img src="#" class="card-img-top" alt="img of product">
+            <img th:if="${aProduct.filename}"  th:src="'/img/' + ${aProduct.filename}" class="card-img-top" alt="img of product">
             <div class="card-body">
                 <h5 class="card-title">[[${aProduct.name}]]</h5>
                 <p class="card-text">[[${aProduct.description}]]</p>
