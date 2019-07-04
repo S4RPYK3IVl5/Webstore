@@ -2,7 +2,7 @@
 <html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="parts/head :: head">
 </head>
-<body >
+<body>
 
     <nav class="navbar navbar-dark bg-dark" th:replace="parts/head :: navbar" >
     </nav>
@@ -87,7 +87,7 @@
                 <li class="list-group-item">Type : <p id="typeOfProduct" th:each="type : ${aProduct.types}">[[${type}]] </p></li>
             </ul>
             <div class="card-body">
-                <a href="#" class="card-link" th:if="${aProduct.author}">[[${aProduct.author.username}]]</a>
+                <a th:href="'/profile/' + ${aProduct.author.id}" class="card-link" th:if="${aProduct.author}">[[${aProduct.author.username}]]</a>
                 <a href="#" class="card-link">To my card</a>
             </div>
         </div>

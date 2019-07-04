@@ -18,11 +18,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/authorization").setViewName("authorization");
         registry.addViewController("/").setViewName("index");
+        registry.addViewController("/profile/**").setViewName("profile");
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("img/**")
             .addResourceLocations("file:///" + uploadPath + "/");
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
     }
 }
