@@ -19,6 +19,9 @@
                 </div>
             </div>
         </div>
+
+        <a th:if="${user.id == userProfile.id}" class="btn btn-primary" href="#" role="button">Setting</a>
+
     </div>
 
     <p class="font-weight-bold text-uppercase text-center"> User's list of product: </p>
