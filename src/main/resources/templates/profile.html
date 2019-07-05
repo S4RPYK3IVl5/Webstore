@@ -7,6 +7,24 @@
     <nav class="navbar navbar-dark bg-dark" th:replace="parts/head :: navbar" >
     </nav>
 
-    <p>Text</p>
+    <div class="card mb-3" id="profileCard" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="#" class="card-img" alt="Profile photo">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">[[${userProfile.username}]]</h5>
+                    <p class="card-text">[[${userProfile.username}]] description : </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="font-weight-bold text-uppercase text-center"> User's list of product: </p>
+
+    <div th:if="${products}" id="productId" th:replace="parts/head :: booksList">
+    </div>
+
 </body>
 </html>

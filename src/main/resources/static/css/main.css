@@ -22,3 +22,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+#profileCard{
+    margin: 2em auto;
+}

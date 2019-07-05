@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<!-- NavBar -->
+
 <nav class="navbar navbar-dark bg-dark" th:fragment="navbar">
     <a class="navbar-brand headImg" href="/">
         <img src="http://localhost:8080/static/myImg/wLetter.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -30,6 +32,27 @@
         <input type="submit" class="btn btn-dark" value="Sign In"/>
     </form>
 </nav>
+
+<!-- Books list -->
+
+<div th:if="${products}" id="productId" th:fragment="booksList">
+    <div class="card m-4" style="width: 18rem;" th:each="aProduct : ${products}">
+        <img th:if="${aProduct.filename}"  th:src="'/img/' + ${aProduct.filename}" class="card-img-top" alt="img of product">
+        <div class="card-body">
+            <h5 class="card-title">[[${aProduct.name}]]</h5>
+            <p class="card-text">[[${aProduct.description}]]</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cost($) : [[${aProduct.cost}]]</li>
+            <li class="list-group-item">Weight(kg) : [[${aProduct.weight}]]</li>
+            <li class="list-group-item">Type : <p id="typeOfProduct" th:each="type : ${aProduct.types}">[[${type}]] </p></li>
+        </ul>
+        <div class="card-body">
+            <a th:href="'/profile/' + ${aProduct.author.id}" class="card-link" th:if="${aProduct.author}">[[${aProduct.author.username}]]</a>
+            <a href="#" class="card-link">To my card</a>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
