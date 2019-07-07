@@ -6,7 +6,7 @@
 
     <nav class="navbar navbar-dark bg-dark" th:fragment="navbar">
         <a class="navbar-brand headImg" href="/">
-            <img src="img/wLetter.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="http://localhost:8080/static/myImg/wLetter.png" width="30" height="30" class="d-inline-block align-top" alt="">
             ebstore
         </a>
 
@@ -15,6 +15,8 @@
         </form>
     </nav>
 
+    <h2 class="font-weight-bold text-uppercase text-center mt-2"> Authorization page </h2>
+
     <div th:if="*{message}" class="alert alert-danger" role="alert">[[${message}]]</div>
 
 <!--/*@thymesVar id="user" type="webstore.domain.User"*/-->
@@ -22,7 +24,7 @@
     <form action="#" th:action="@{/authorization}" th:object="${user}" method="post">
 
             <div class="form-group m-3 form-inline">
-                <label for="inputPassword2">User name:</label>
+                <label for="inputPassword2">Username:</label>
 
                 <input type="text" th:field="*{username}" id="inputPassword2"
                        class="form-control mx-sm-3" aria-describedby="passwordHelpInline"

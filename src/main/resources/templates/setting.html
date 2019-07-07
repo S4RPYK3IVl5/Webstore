@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="parts/head :: head">
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark" th:replace="parts/head :: navbar" >
+    </nav>
+
+    <h2 class="font-weight-bold text-uppercase text-center mt-2"> Setting page </h2>
+
+    <div th:if="*{message}" class="alert alert-danger" role="alert">[[${message}]]</div>
+
+    <div th:if="*{success}" class="alert alert-success" role="alert">[[${success}]]</div>
+
+    <form action="#" th:action="@{/setting}" method="post">
+
+        <div class="form-group m-3 form-inline">
+            <label for="inputPassword6">Password:</label>
+            <input type="password" name="password1" id="inputPassword6"
+                   class="form-control mx-sm-3" aria-describedby="passwordHelpInline"
+                   placeholder="Enter your password"/>
+        </div>
+
+        <div class="form-group m-3 form-inline">
+            <label for="inputPassword7">Repeat Password:</label>
+            <input type="password" name="password2" id="inputPassword7"
+                   class="form-control mx-sm-3" aria-describedby="passwordHelpInline"
+                   placeholder="Repeat password"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary m-3 ml-4">Submit</button>
+    </form>
+
+</body>
+</html>
