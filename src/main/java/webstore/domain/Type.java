@@ -5,6 +5,7 @@ public enum  Type {
     ANIMAL("Animals"),
     REALTY("Realty"),
     CLOTHES("Clothes"),
+    INTERIOR("Interior"),
     OTHER("Other");
 
     private String value;

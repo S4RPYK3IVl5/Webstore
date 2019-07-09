@@ -10,7 +10,7 @@
     <div class="card mb-3" id="profileCard" style="max-width: 540px;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="#" class="card-img" alt="Profile photo">
+                <img th:if="${userProfile.filename}"  th:src="'/img/' + ${userProfile.filename}" class="card-img" alt="Profile photo">
             </div>
             <div class="col-md-8">
                 <div class="card-body">

@@ -13,7 +13,12 @@
 
     <div th:if="*{success}" class="alert alert-success" role="alert">[[${success}]]</div>
 
-    <form action="#" th:action="@{/setting}" method="post">
+    <form action="#" th:action="@{/setting}" method="post" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Upload profile photo</label>
+            <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
 
         <div class="form-group m-3 form-inline">
             <label for="inputPassword6">Password:</label>
