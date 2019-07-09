@@ -37,6 +37,8 @@ public class User implements UserDetails {
 
     private String filename;
 
+    private String description;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();

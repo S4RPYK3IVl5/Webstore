@@ -34,7 +34,7 @@ public class UserSettingController {
     @PostMapping
     public String postSetting(@AuthenticationPrincipal User user, @RequestParam("password1") String password1,
                               @RequestParam("password2") String password2, @RequestParam("file") MultipartFile file,
-                              Model model) throws IOException {
-        return userSettingService.postSetting(user, password1, password2, file, model);
+                              @RequestParam("description") String description,  Model model) throws IOException {
+        return userSettingService.postSetting(user, password1, password2, description, file, model);
     }
 }

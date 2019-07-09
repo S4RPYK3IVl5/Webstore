@@ -15,7 +15,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">[[${userProfile.username}]]</h5>
-                    <p class="card-text">[[${userProfile.username}]] description : </p>
+                    <p class="card-text">[[${userProfile.username}]] description : <p th:if="${userProfile.description}" style="display: inline;"> [[${userProfile.description}]] </p></p>
                 </div>
             </div>
         </div>

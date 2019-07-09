@@ -23,7 +23,7 @@ public class UserSettingService {
         this.userRepo = userRepo;
     }
 
-    public String postSetting(User user, String password1, String password2, MultipartFile file, Model model) throws IOException {
+    public String postSetting(User user, String password1, String password2, String description, MultipartFile file, Model model) throws IOException {
 
         if (!password1.isEmpty() || !password2.isEmpty()) {
             if (password1.length() < 6 || password2.length() < 6) {
@@ -50,6 +50,10 @@ public class UserSettingService {
             String filename = UUID.randomUUID().toString() + "." + file.getOriginalFilename();
             file.transferTo(new File(uploadPath + "/" +filename));
             user.setFilename(filename);
+        }
+
+        if (!description.isEmpty()){
+            user.setDescription(description);
         }
 
         userRepo.save(user);
