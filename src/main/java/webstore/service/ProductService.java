@@ -67,4 +67,17 @@ public class ProductService {
         model.addAttribute("user", user);
         return "main";
     }
+
+    public String saveProductToLiked(User user, Product product) {
+
+        //Добавление лайка на продукт
+        if (!product.getLikedByUser().contains(user))
+            product.getLikedByUser().add(user);
+        else
+            product.getLikedByUser().remove(user);
+
+        productRepo.save(product);
+
+        return "redirect:/hello";
+    }
 }
