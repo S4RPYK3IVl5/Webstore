@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="parts/head :: head">
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark" th:replace="parts/head :: navbar" >
+    </nav>
+
+    <h2 class="font-weight-bold text-uppercase text-center mt-2"> Liked product: </h2>
+
+    <div th:if="${products}" id="productId" th:replace="parts/head :: booksList">
+    </div>
+</body>
+</html>

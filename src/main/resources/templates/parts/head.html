@@ -21,7 +21,7 @@
         ebstore
     </a>
 
-    <a th:if="${user}" href="#" class="navbar-brand">Liked</a>
+    <a th:if="${user}" href="/liked" class="navbar-brand">Liked</a>
 
     <a th:if="${user}" th:href="'/profile/' + ${user.id}" class="navbar-brand">[[${#httpServletRequest.remoteUser}]]</a>
 
