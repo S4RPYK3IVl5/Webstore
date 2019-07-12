@@ -63,6 +63,11 @@ public class ProductService {
     public String getHello(User user, Product product, Model model) {
         //Получение полного списка товаров
         List<Product> products = productRepo.findAll();
+
+        for (Product product1 : products)
+            if (product1.getAuthor() == null)
+                productRepo.delete(product1);
+
         model.addAttribute("products", products);
         model.addAttribute("user", user);
         return "main";
