@@ -12,6 +12,7 @@ import webstore.repos.ProductRepo;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -20,6 +21,7 @@ import java.util.UUID;
 public class ProductService {
 
     private final ProductRepo productRepo;
+    private List<Product> products;
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -60,9 +62,29 @@ public class ProductService {
         return "redirect:/hello";
     }
 
-    public String getHello(User user, Product product, Model model) {
-        //Получение полного списка товаров
-        List<Product> products = productRepo.findAll();
+    public String getHello(User user, String nameOfProduct, String typeOfProduct, Product product, Model model) {
+
+        //Получение полного списка товаров или поиск товаров
+        if (nameOfProduct.isEmpty() && typeOfProduct.isEmpty())
+            products = productRepo.findAll();
+        else
+        {
+            if (nameOfProduct.isEmpty())
+                products = productRepo.findByTypes(Type.isType(typeOfProduct));
+
+            if (typeOfProduct.isEmpty()) {
+                ArrayList<Product> deleteProduct = new ArrayList<>();
+                products = productRepo.findAll();
+
+                for (Product eachProduct : products)
+                    if (!eachProduct.getName().contains(nameOfProduct))
+                        deleteProduct.add(eachProduct);
+
+                for (Product eachProduct : deleteProduct)
+                    products.remove(eachProduct);
+            }
+        }
+
 
         for (Product product1 : products)
             if (product1.getAuthor() == null)

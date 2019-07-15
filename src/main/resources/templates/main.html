@@ -7,9 +7,40 @@
     <nav class="navbar navbar-dark bg-dark" th:replace="parts/head :: navbar" >
     </nav>
 
-    <a class="btn btn-primary ml-4 my-2" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        Add Product
-    </a>
+    <p>
+        <a class="btn btn-primary ml-4 my-2" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Add Product
+        </a>
+        <a class="btn btn-primary" data-toggle="collapse" href="#searchDiv" role="button" aria-expanded="false" aria-controls="searchDiv">
+            Search product
+        </a>
+    </p>
+
+    <div class="collapse" id="searchDiv">
+        <div class="card card-body">
+            <form action="#" th:action="@{/hello/search}" th:object="${product}" method="post" >
+                <div class="row">
+                    <div class="col">
+                        <label for="searchName">Name of product</label>
+                        <input type="text" name="name" class="form-control" id="searchName" placeholder="Name of product">
+                    </div>
+                    <div class="col">
+                        <label for="inputGroupSelect04">Select type</label>
+                        <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" name="type">
+                            <option selected></option>
+                            <option value="Interior">interior</option>
+                            <option value="technicals">technicals</option>
+                            <option value="animals">animals</option>
+                            <option value="realty">realty</option>
+                            <option value="clothes">clothes</option>
+                            <option value="other">other</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary m-3 ml-4">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <!--/*@thymesVar id="product" type="webstore.domain.Product"*/-->
     <div class="collapse" id="collapseExample">

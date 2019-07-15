@@ -25,8 +25,11 @@ public class ProductController {
 
 
     @GetMapping
-    public String getHello(@AuthenticationPrincipal User user, Product product, Model model){
-        return productService.getHello(user, product, model);
+    public String getHello(@AuthenticationPrincipal User user,
+                           @RequestParam(value = "searchName", defaultValue = "", required = false) String nameOfProduct,
+                           @RequestParam(value = "searchType", defaultValue = "", required = false) String typeOfProduct,
+                           Product product, Model model){
+        return productService.getHello(user, nameOfProduct, typeOfProduct, product, model);
     }
 
     @PostMapping
@@ -38,6 +41,18 @@ public class ProductController {
                               Model model) throws IOException {
 
         return productService.saveProduct(user, product, bindingResult, type, file, model);
+    }
+
+    @PostMapping("search")
+    public String searchProduct(@RequestParam("name") String name, @RequestParam("type") String type){
+
+        if (name.isEmpty())
+            return "redirect:/hello?searchType="+type;
+
+        if (type.isEmpty())
+            return "redirect:/hello?searchName="+name;
+
+        return "redirect:/hello?searchName="+name+"&"+"searchType="+type;
     }
 
     @GetMapping("save/{id}")
