@@ -10,4 +10,5 @@ import java.util.List;
 public interface ProductRepo extends JpaRepository<Product, Long> {
     List<Product> findByAuthor(User user);
     List<Product> findByTypes(Type type);
+    List<Product> findByNameAndTypes(String name, Type type);
 }

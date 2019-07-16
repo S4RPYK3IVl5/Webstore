@@ -83,8 +83,13 @@ public class ProductService {
                 for (Product eachProduct : deleteProduct)
                     products.remove(eachProduct);
             }
+
+            if (!nameOfProduct.isEmpty() && !typeOfProduct.isEmpty())
+                products = productRepo.findByNameAndTypes(nameOfProduct, Type.isType(typeOfProduct));
         }
 
+        if (products.isEmpty())
+            model.addAttribute("alert", "we can not find any product with your request");
 
         for (Product product1 : products)
             if (product1.getAuthor() == null)

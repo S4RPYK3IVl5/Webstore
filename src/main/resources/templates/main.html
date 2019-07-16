@@ -106,7 +106,12 @@
         </div>
     </div>
 
+
     <p class="font-weight-bold text-uppercase text-center"> List of product: </p>
+
+    <div th:if="${alert}" class="alert alert-danger mx-auto" role="alert">
+        [[${alert}]]
+    </div>
 
     <div th:if="${products}" id="productId" th:replace="parts/head :: booksList">
     </div>
