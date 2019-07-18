@@ -84,8 +84,12 @@ public class ProductService {
                     products.remove(eachProduct);
             }
 
-            if (!nameOfProduct.isEmpty() && !typeOfProduct.isEmpty())
-                products = productRepo.findByNameAndTypes(nameOfProduct, Type.isType(typeOfProduct));
+            if (!nameOfProduct.isEmpty() && !typeOfProduct.isEmpty()) {
+                products = productRepo.findByTypes(Type.isType(typeOfProduct));
+                for (Product product1 : products)
+                    if (!product1.getName().contains(nameOfProduct))
+                        products.remove(product1);
+            }
         }
 
         if (products.isEmpty())
